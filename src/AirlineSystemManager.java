@@ -24,7 +24,6 @@ public class AirlineSystemManager {
             }
         }
     }
-
     private void showMainMenu() {
         ui.displayMainMenu();
         int choice = ui.getMainMenuChoice();
