@@ -81,11 +81,11 @@ public class FlightManager {
         return newDatetime.truncatedTo(ChronoUnit.MINUTES);
     }
 
-    public void displayFlightSchedule(ConsoleInterface ui) {
+    public void displayFlightSchedule(UtilityExtract ui) {
         ui.displayFlightSchedule(flights);
     }
 
-    public void deleteFlight(ConsoleInterface ui) {
+    public void deleteFlight(UtilityExtract ui) {
         String flightNumber = ui.promptForFlightNumber();
         if (flights.removeIf(f -> f.getNumber().equalsIgnoreCase(flightNumber))) {
             ui.displaySuccess("Flight deleted successfully");
@@ -94,7 +94,7 @@ public class FlightManager {
         }
     }
 
-    public void displayFlightPassengers(ConsoleInterface ui) {
+    public void displayFlightPassengers(UtilityExtract ui) {
         String flightNumber = ui.promptForFlightNumber();
         Flight flight = findFlightByNumber(flightNumber);
         if (flight != null) {
