@@ -33,7 +33,7 @@ public class AirlineSystemManager {
             case 2: currentUser = accountManager.handleAdminRegistration(ui); break;
             case 3: currentUser = accountManager.handleCustomerLogin(ui); break;
             case 4: currentUser = accountManager.handleCustomerRegistration(ui); break;
-            case 5: displayManualInstructions(); break;
+            case 5: ui.manualInstructions(); break;
             case 0: System.exit(0);
         }
     }
