@@ -3,11 +3,11 @@ public class AirlineSystemManager {
     private final CustomerManager customerManager;
     private final FlightManager flightManager;
     private final BookingManager bookingManager;
-    private final ConsoleInterface ui;
+    private final UtilityExtract ui;
     private User currentUser;
 
     public AirlineSystemManager() {
-        this.ui = new ConsoleInterface();
+        this.ui = new UtilityExtract();
         this.accountManager = new AccountManager();
         this.flightManager = new FlightManager();
         this.bookingManager = new BookingManager(flightManager, accountManager);

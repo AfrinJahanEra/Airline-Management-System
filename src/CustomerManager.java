@@ -11,7 +11,7 @@ public class CustomerManager {
         this.bookingManager = bookingManager;
     }
 
-    public void addNewCustomer(ConsoleInterface ui) {
+    public void addNewCustomer(UtilityExtract ui) {
         CustomerRegistrationData data = ui.promptForCustomerRegistration();
         try {
             accountManager.registerCustomer(
@@ -29,7 +29,7 @@ public class CustomerManager {
         }
     }
 
-    public void searchCustomer(ConsoleInterface ui) {
+    public void searchCustomer(UtilityExtract ui) {
         String customerId = ui.promptForCustomerId();
         Customer customer = accountManager.findCustomerById(customerId);
         if (customer != null) {
@@ -39,7 +39,7 @@ public class CustomerManager {
         }
     }
 
-    public void updateCustomer(ConsoleInterface ui) {
+    public void updateCustomer(UtilityExtract ui) {
         String customerId = ui.promptForCustomerId();
         Customer customer = accountManager.findCustomerById(customerId);
         if (customer != null) {
@@ -55,7 +55,7 @@ public class CustomerManager {
         }
     }
 
-    public void deleteCustomer(ConsoleInterface ui) {
+    public void deleteCustomer(UtilityExtract ui) {
         String customerId = ui.promptForCustomerId();
         if (accountManager.deleteAccount(customerId)) {
             ui.displaySuccess("Customer deleted successfully");
@@ -64,18 +64,18 @@ public class CustomerManager {
         }
     }
 
-    public void displayAllCustomers(ConsoleInterface ui) {
+    public void displayAllCustomers(UtilityExtract ui) {
         List<Customer> customers = accountManager.getAllCustomers();
         ui.displayAllCustomers(customers);
     }
 
-    public void displayCustomerFlights(ConsoleInterface ui) {
+    public void displayCustomerFlights(UtilityExtract ui) {
         String customerId = ui.promptForCustomerId();
         List<FlightBooking> bookings = bookingManager.getCustomerBookings(customerId);
         ui.displayCustomerBookings(bookings);
     }
 
-    public void updateCustomerInfo(Customer customer, ConsoleInterface ui) {
+    public void updateCustomerInfo(Customer customer, UtilityExtract ui) {
         CustomerRegistrationData data = ui.promptForCustomerUpdate();
         customer.setName(data.name());
         customer.setEmail(data.email());

@@ -14,7 +14,7 @@ public abstract class User {
         this.accountManager = accountManager;
     }
 
-    public abstract void showDashboard(ConsoleInterface ui, AirlineSystemManager manager);
+    public abstract void showDashboard(UtilityExtract ui, AirlineSystemManager manager);
 
     public String getUserId() { return userId; }
     public String getUsername() { return username; }

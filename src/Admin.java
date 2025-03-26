@@ -4,7 +4,7 @@ public class Admin extends User {
     }
 
     @Override
-    public void showDashboard(ConsoleInterface ui, AirlineSystemManager manager) {
+    public void showDashboard(UtilityExtract ui, AirlineSystemManager manager) {
         while (true) {
             ui.displayAdminMenu(username);
             int choice = ui.getAdminMenuChoice();

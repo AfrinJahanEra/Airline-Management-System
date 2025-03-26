@@ -15,7 +15,7 @@ public class BookingManager {
         this.bookings = new ArrayList<>();
     }
 
-    public void bookFlight(Customer customer, ConsoleInterface ui) {
+    public void bookFlight(Customer customer, UtilityExtract ui) {
         flightManager.displayFlightSchedule(ui);
         String flightNumber = ui.promptForFlightNumber();
         int numTickets = ui.promptForNumberOfTickets();
@@ -46,7 +46,7 @@ public class BookingManager {
         ui.displaySuccess("Flight booked successfully");
     }
 
-    public void cancelFlight(Customer customer, ConsoleInterface ui) {
+    public void cancelFlight(Customer customer, UtilityExtract ui) {
         List<FlightBooking> customerBookings = getCustomerBookings(customer.getUserId());
         if (customerBookings.isEmpty()) {
             ui.displayError("No bookings found");
@@ -78,7 +78,7 @@ public class BookingManager {
         ui.displaySuccess("Booking cancelled successfully");
     }
 
-    public void displayCustomerBookings(Customer customer, ConsoleInterface ui) {
+    public void displayCustomerBookings(Customer customer, UtilityExtract ui) {
         List<FlightBooking> bookings = getCustomerBookings(customer.getUserId());
         ui.displayCustomerBookings(bookings);
     }

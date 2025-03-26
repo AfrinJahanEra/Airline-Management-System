@@ -17,7 +17,7 @@ public class AccountManager {
         registerAdmin("root", "root");
     }
 
-    public User handleAdminLogin(ConsoleInterface ui) {
+    public User handleAdminLogin(UtilityExtract ui) {
         String[] credentials = ui.promptForCredentials();
         User user = login(credentials[0], credentials[1]);
 
@@ -28,7 +28,7 @@ public class AccountManager {
         return user;
     }
 
-    public User handleAdminRegistration(ConsoleInterface ui) {
+    public User handleAdminRegistration(UtilityExtract ui) {
         String[] credentials = ui.promptForCredentials();
         try {
             User admin = registerAdmin(credentials[0], credentials[1]);
@@ -40,7 +40,7 @@ public class AccountManager {
         }
     }
 
-    public User handleCustomerLogin(ConsoleInterface ui) {
+    public User handleCustomerLogin(UtilityExtract ui) {
         String[] credentials = ui.promptForCredentials();
         User user = login(credentials[0], credentials[1]);
 
@@ -51,7 +51,7 @@ public class AccountManager {
         return user;
     }
 
-    public User handleCustomerRegistration(ConsoleInterface ui) {
+    public User handleCustomerRegistration(UtilityExtract ui) {
         CustomerRegistrationData data = ui.promptForCustomerRegistration();
         try {
             User customer = registerCustomer(
@@ -129,7 +129,7 @@ public class AccountManager {
                 .collect(Collectors.toList());
     }
 
-    public void deleteAccount(Customer customer, ConsoleInterface ui, AirlineSystemManager manager) {
+    public void deleteAccount(Customer customer, UtilityExtract ui, AirlineSystemManager manager) {
         if (ui.confirmAction("Are you sure you want to delete your account?")) {
             if (deleteAccount(customer.getUserId())) {
                 ui.displaySuccess("Account deleted successfully");

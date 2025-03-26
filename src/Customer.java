@@ -17,7 +17,7 @@ public class Customer extends User {
     }
 
     @Override
-    public void showDashboard(ConsoleInterface ui, AirlineSystemManager manager) {
+    public void showDashboard(UtilityExtract ui, AirlineSystemManager manager) {
         while (true) {
             ui.displayCustomerMenu(username);
             int choice = ui.getCustomerMenuChoice();
