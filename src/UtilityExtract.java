@@ -60,7 +60,57 @@ public class UtilityExtract {
     }
 
     /* Customer Menu Methods */
-   
+    public void displayCustomerMenu(String username) {
+        System.out.printf("\n\n%-60s+++++++++ Customer Menu +++++++++%50sLogged in as \"%s\"\n", "", "", username);
+        System.out.printf("%-30s (a) Enter 1 to Book a flight\n", "");
+        System.out.printf("%-30s (b) Enter 2 to Update your data\n", "");
+        System.out.printf("%-30s (c) Enter 3 to Delete your account\n", "");
+        System.out.printf("%-30s (d) Enter 4 to View flight schedule\n", "");
+        System.out.printf("%-30s (e) Enter 5 to Cancel a flight\n", "");
+        System.out.printf("%-30s (f) Enter 6 to View your bookings\n", "");
+        System.out.printf("%-30s (g) Enter 0 to Logout\n", "");
+        System.out.print("Enter your choice: ");
+    }
+
+    public int getCustomerMenuChoice() {
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        while (choice < 0 || choice > 6) {
+            System.out.print("Invalid choice (0-6): ");
+            choice = scanner.nextInt();
+            scanner.nextLine();
+        }
+        return choice;
+    }
+
+    /* Input Methods */
+    public String[] promptForCredentials() {
+        System.out.print("\nEnter username: ");
+        String username = scanner.nextLine();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+        return new String[]{username, password};
+    }
+
+    public CustomerRegistrationData promptForCustomerRegistration() {
+        System.out.print("\nEnter username: ");
+        String username = scanner.nextLine();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter email: ");
+        String email = scanner.nextLine();
+        System.out.print("Enter phone: ");
+        String phone = scanner.nextLine();
+        System.out.print("Enter address: ");
+        String address = scanner.nextLine();
+        System.out.print("Enter age: ");
+        int age = scanner.nextInt();
+        scanner.nextLine();
+        
+        return new CustomerRegistrationData(username, password, name, email, phone, address, age);
+    }
 
     public CustomerRegistrationData promptForCustomerUpdate() {
         System.out.print("\nEnter new name: ");
